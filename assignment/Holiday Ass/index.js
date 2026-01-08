@@ -30,28 +30,33 @@ function revString(string){
 console.log(revString("How are u doing"))
 
 // 4
-
-function largeNum() {
-    let max = arguments[0]; 
-    for (let i = 1; i < arguments.length; i++) {
-        if (arguments[i] > max) {
-            max = arguments[i];
-        }
-    }
-    return max;
+const listNum = [50, 400, 200, 12, 98, 59]
+function largeNum(numArr) {
+    let large = numArr[0];
+    for (item of numArr){
+      if (item > large){
+        large = item;
+      }
+    } 
+    console.log(`Largest number is ${large}`);
 }
+largeNum(listNum)
 
 console.log(largeNum(12, 23, 45, 21)); 
 
 // 5
 
-function vowelCount(string){
+function vowelCount(str){
     let vowels = "aeiou";
     let count = 0;
 
-    for ()
-
+    for (let char of str.toLowerCase()) {
+    if (vowels.includes(char)) count++;
+  }
+  return count;
 }
+
+console.log(countVowels("Hello World"));
 
 // 6
 
@@ -92,10 +97,18 @@ function factorial(n) {
 
 // 10
 
-function isPalindrome(str) {
-  let cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, "");
-  return cleaned === cleaned.split("").reverse().join("");
-}
+function checkPalin(str) {
+  let orgWord = str.toLowerCase();
+  let revWord = orgWord.split("").reverse().join("");
+
+  if (orgWord === revWord){
+    console.log(`${orgWord} is a Palindrome`);
+  } else {
+    console.log(`${orgWord} is not a Palindrome`);
+  }
+
+console.log(checkPalin("hello"));
+console.log(checkPalin("eyes"));
 
 // 11
 
@@ -104,61 +117,72 @@ function averageScore(scores) {
   return total / scores.length;
 }
 
+console.log(averageScore([23, 35, 58, 76, 24]))
+
 // 12
 
-for (let i = 1; i <= 100; i++) {
-  if (i % 15 === 0) console.log("FizzBuzz");
-  else if (i % 3 === 0) console.log("Fizz");
-  else if (i % 5 === 0) console.log("Buzz");
-  else console.log(i);
+for (let fizz = 1; fizz <= 100; fizz++) {
+  if (fizz % 15 === 0) console.log("FizzBuzz");
+  else if (fizz % 3 === 0) console.log("Fizz");
+  else if (fizz % 5 === 0) console.log("Buzz");
+  else console.log(fizz);
 }
+
 
 // 13
 
-function countProperties(obj) {
+function countProp(obj) {
   return Object.keys(obj).length;
 }
 
+console.log(countProp({ myName: "Umar", age: 21, range: 95 }));
+
 // 14
 
-function capitalizeWords(sentence) {
-  return sentence
+function capWords(sent) {
+  return sent
     .split(" ")
     .map(word => word[0].toUpperCase() + word.slice(1))
     .join(" ");
 }
 
+console.log(capWords("when is the lecture starting"))
+
 // 15
 
-function calculator(a, b, operator) {
+function calculator(num1, num2, operator) {
   switch (operator) {
     case "+":
-      return a + b;
+      return num1 + num2;
     case "-":
-      return a - b;
+      return num1 - num2;
     case "*":
-      return a * b;
+      return num1 * num2;
     case "/":
-      return b !== 0 ? a / b : "Cannot divide by zero";
+      return num2 !== 0 ? num1 / num2 : "This Cannot be divided by zero";
     default:
-      return "Invalid operator";
+      return "Incorrect Operator Sign";
   }
 }
+
+console.log(calculator(12,20,"*"))
 
 // 16
 
 function guessingGame(guess) {
-  let random = Math.floor(Math.random() * 10) + 1;
-  return guess === random
-    ? "Correct! 🎉"
-    : `Wrong! The number was ${random}`;
+  let randNum = Math.floor(Math.random() * 10) + 1;
+  return guess === randNum
+    ? "Correct Answer! "
+    : `Wrong! The number was ${randNum}`;
 }
+
+console.log(guessingGame(4));
 
 
 // 17 
 
-function wordFrequency(sentence) {
-  let words = sentence.toLowerCase().split(" ");
+function wordFrequency(sent) {
+  let words = sent.toLowerCase().split(" ");
   let count = {};
 
   for (let word of words) {
@@ -167,26 +191,98 @@ function wordFrequency(sentence) {
   return count;
 }
 
+console.log(wordFrequency("i am studying at GOMYCODE i am also on break"));
+
+
 // 18
 
-function passingStudents(students) {
+function passStudent(students) {
   return students.filter(student => student.score > 50);
 }
+const students = [
+  { name: "Umar", score: 35 },
+  { name: "Cosmos", score: 65 },
+  { name: "Teddy", score: 45 }
+];
+
+console.log(passStudent(students));
 
 // 19
 
-let todos = [];
+let todo = [];
 
 function addTask(task) {
-  todos.push(task);
+  todo.push(task);
 }
 
 function removeTask(task) {
-  todos = todos.filter(t => t !== task);
+  todo = todo.filter(t => t !== task);
 }
 
 function listTasks() {
-  return todos;
+  return todo;
 }
+
+addTask("I should Learn JavaScript");
+addTask("Take time to practice");
+removeTask("Take time to practice");
+
+console.log(listTasks());
+
+}
+
+//20
+
+function redundant(str) {
+  return function () {
+    return str;
+  };
+}
+
+
+const f1 = redundant("apple");
+console.log(f1()); 
+
+const f2 = redundant("pear");
+console.log(f2()); 
+
+const f3 = redundant("");
+console.log(f3()); 
+
+//21
+
+function sevenBoom(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (String(arr[i]).includes("7")) {
+      return "Boom!";
+    }
+  }
+  return "There is no 7 in the array";
+}
+
+console.log(sevenBoom([1, 2, 3, 4, 5, 6, 7])); 
+console.log(sevenBoom([8, 6, 33, 100])); 
+console.log(sevenBoom([2, 55, 60, 97, 86])); 
+
+//22
+
+function addition(num) {
+  return num + 1;
+}
+
+console.log(addition(0));
+console.log(addition(9));
+console.log(addition(-3));
+
+//23
+
+function triArea(base, height) {
+  return (base * height) / 2;
+}
+console.log(triArea(3, 2));
+console.log(triArea(7, 4));
+console.log(triArea(10, 10));
+
+
 
 
