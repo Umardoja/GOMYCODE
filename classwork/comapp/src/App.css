@@ -1,0 +1,18 @@
+.grid{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero-banner {
+  background: linear-gradient(120deg, #7aa0b5, #9ad7c5);
+}
+
+.sidebar-item:hover {
+  background: #f8f9fa;
+  cursor: pointer;
+}
+
+#MainNav {
+  display: flex;
+}

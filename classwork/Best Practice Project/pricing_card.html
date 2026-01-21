@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Reusable Pricing Card</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f6fa;
+  padding: 40px;
+}
+
+/* Reusable Card */
+.pricing-card {
+  max-width: 320px;
+  margin: auto;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+}
+
+.pricing-card__title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.pricing-card__price {
+  font-size: 20px;
+  color: #2ecc71;
+  margin-bottom: 15px;
+}
+
+.pricing-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.pricing-card__features li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.pricing-card__features li:last-child {
+  border-bottom: none;
+}
+
+.pricing-card__btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pricing-card__btn:hover {
+  background-color: #0056b3;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Reusable Component -->
+<div class="pricing-card">
+  <h2 class="pricing-card__title">Basic Plan</h2>
+  <p class="pricing-card__price">$9.99 / month</p>
+
+  <ul class="pricing-card__features">
+    <li>1 GB Storage</li>
+    <li>Basic Support</li>
+    <li>All Core Features</li>
+  </ul>
+
+  <button class="pricing-card__btn">Start Free Trial</button>
+</div>
+
+</body>
+</html>
