@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dial Pad</title>
+  <link rel="stylesheet" href="dialpad.css">
+</head>
+<body>
+
+<div class="dialpad-container">
+  <div class="screen">
+    <input type="text" id="numberDisplay" readonly placeholder="Enter number">
+  </div>
+
+  <div class="keys">
+    <button data-key="1">1<span></span></button>
+    <button data-key="2">2<span>ABC</span></button>
+    <button data-key="3">3<span>DEF</span></button>
+
+    <button data-key="4">4<span>GHI</span></button>
+    <button data-key="5">5<span>JKL</span></button>
+    <button data-key="6">6<span>MNO</span></button>
+
+    <button data-key="7">7<span>PQRS</span></button>
+    <button data-key="8">8<span>TUV</span></button>
+    <button data-key="9">9<span>WXYZ</span></button>
+
+    <button data-key="*">*</button>
+    <button data-key="0">0<span>+</span></button>
+    <button data-key="#">#</button>
+  </div>
+
+  <div class="actions">
+    <button id="clear">Clear</button>
+    <button id="call">📞 Call</button>
+    <button id="backspace">⌫</button>
+  </div>
+</div>
+
+<script src="dialpad.js"></script>
+</body>
+</html>
